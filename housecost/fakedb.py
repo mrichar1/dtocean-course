@@ -7,8 +7,8 @@ class DB(object):
         """Initialise dictionary attributes."""
 
         self.value = {"small": {"scotland": 100000,
-                                "england": 250000,
-                                "ireland": 200000},
+                                "england": 200000,
+                                "ireland": 160000},
                       "medium": {"scotland": 250000,
                                  "england": 500000,
                                  "ireland": 500000},
@@ -18,7 +18,7 @@ class DB(object):
                       }
 
         self.density = {"small": {"scotland": 20,
-                                  "england": 10,
+                                  "england": 7,
                                   "ireland": 9},
                         "medium": {"scotland": 5,
                                    "england": 6,

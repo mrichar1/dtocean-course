@@ -24,7 +24,7 @@
 <!-- BEGIN slide content -->
 
 	<section id="start">
-	  <h3>Python Course: DTOcean</h3>
+	  <h2>Python Course: DTOcean</h2>
 	  <p>Matthew Richardson</p>
 	  <p>July 2014</p>
 	</section>
@@ -35,12 +35,12 @@
 	  </section>
 
     <section>
-      <h2>Installation</h2>
+      <h3>Installation</h3>
       <p>See installation notes from Course email...</p>
     </section>
 
     <section>
-      <h2>Running Python</h2>
+      <h3>Running Python</h3>
 
       <h3>Shell</h3>
       <pre>
@@ -64,7 +64,7 @@ Type "help", "copyright", "credits" or "license" for more information.
     </section>
 
   <section id="hello">
-    <h2>greetings.py</h2>
+    <h3>greetings.py</h3>
     <pre>
 
 print "Hello!"
@@ -75,7 +75,7 @@ print "Hello!"
   </section>
 
   <section id="methods">
-    <h2>Methods</h2>
+    <h3>Methods</h3>
 <pre>
 
 # Create a method, that takes one argument
@@ -91,7 +91,7 @@ hello("John")
 </section>
 
   <section id="main">
-    <h2>As a command</h2>
+    <h3>As a command</h3>
     <pre>
 
 # Create a method, that takes one argument
@@ -107,7 +107,7 @@ if __name__ == "__main__":
 
 
   <section id="main">
-    <h2>As a module</h2>
+    <h3>As a module</h3>
     <pre>
 
 # Load the greetings module
@@ -121,7 +121,7 @@ greetings.hello("John")
 </section>
 
   <section id="packages">
-    <h2>Package Structure</h2>
+    <h3>Package Structure</h3>
     <br/>
     <ul style="list-style-type: none;">
       <li>greetings/</li>
@@ -143,7 +143,7 @@ greetings.hello("John")
 </section>
 
   <section id="imports">
-    <h2>Imports</h2>
+    <h3>Imports</h3>
     <pre>
 
 import greetings
@@ -267,7 +267,7 @@ ages["David"] = 67
 </section>
 
 <section>
-<h3>Nesting</h3>
+<h3>Nesting in Data Objects</h3>
 <pre>
 
 fish = ["cod", "carp", "mackerel"]
@@ -298,7 +298,7 @@ print ages["male"]["Bob"]
 </section>
 
 <section id="returns">
-<h2>Returns</h2>
+<h3>Returns</h3>
 <pre>
 
 def hello(person):
@@ -313,7 +313,7 @@ print hello("Jack")
 </section>
 
 <section id="errorhandling">
-<h2>Errors and Exceptions</h2>
+<h3>Errors and Exceptions</h3>
 <pre>
 
 a = 1/0
@@ -333,7 +333,7 @@ except ZeroDivisionError:
 </section>
 
 <section>
-<h2>Everything is an Object</h2>
+<h3>Everything is an Object</h3>
 <pre>
 
 def double(num):
@@ -355,7 +355,7 @@ for number in numbers:
 </section>
 
 <section>
-<h2>Named and Optional Arguments</h2>
+<h3>Named and Optional Arguments</h3>
 <pre>
 
 def add(first, second=2, third=3):
@@ -375,96 +375,10 @@ add(1, third=10):
 
 </pre>
 </section>
-</section>
 
-<section id="sql">
-<section>
-<h2>Python Database Access</h2>
-</section>
-
-<section id="trad">
-<h2>DB-API SQL Access</h2>
-<pre>
-
-import sqlite3 # or psycopg2, or mysql, ...
-
-conn = sqlite3.connect('test.db')
-c = conn.cursor()
-
-for entry in c.execute("SELECT size, value FROM house_value WHERE size = 'small'"):
-    print entry[0], entry[1]
-
-</pre>
-</section>
-
-
-<section id="sqlalchemy">
-<h2>SQL Alchemy</h2>
-<pre>
-
-from sqlalchemy import orm, create_engine, MetaData, Table
-
-db = create_engine('sqlite:///house.db')
-metadata = MetaData(db)
-session = orm.sessionmaker(bind=db)()
-
-h_val = metadata.tables["house_value"].columns
-
-for entry in session.query(h_val.size,
-                           h_val.value).\
-                           filter(h_val.size == 'small'):
-    print entry.size, entry.value
-
-</pre>
-
-
-</section>
-</section>
-
-<section id="pythonic">
-<section>
-<h2>Writing 'Good' Python</h2>
-</section>
-
-    <section id="zen">
-      <h2>Zen of Python</h2>
-      <pre>&gt; import this</pre>
-      <pre class="fragment">
-    Beautiful is better than ugly.
-    Explicit is better than implicit.
-    Simple is better than complex.
-    Complex is better than complicated.
-    Readability counts.
-    ...</pre>
-    </section>
 
 <section>
-<h2>Documentation</h2>
-<pre>
-"""A module which greets you."""
-
-def hello(person):
-    """Takes a string, returns a string."""
-    return "Hello " + person
-</pre>
-<pre>
->>> help(greetings)
-Help on module greetings:
-
-NAME
-    greetings - A module which greets you.
-
-FILE
-    /tmp/greetings.py
-
-FUNCTIONS
-    hello(person)
-        Takes a string, returns a string.
-</pre>
-</section>
-
-<section>
-<h2>Introspection</h2>
+<h3>Introspection</h3>
 <pre>
 
 type("cat")
@@ -489,7 +403,172 @@ at least one cased character in S, False otherwise.</strong>
 </section>
 
 <section>
-<h2>PEP8</h2>
+<h3>Object-Oriented Python</h3>
+<pre>
+
+class Animal(object):
+
+    def __init__(self, continent):
+        self.continent = continent
+        self.eat = "nothing"
+
+    def come_from(self):
+        return self.continent
+
+zebras = Animal("Africa")
+koalas = Animal("Australia")
+
+print zebras.come_from()
+print koalas.come_from()
+
+print koalas.eat
+koalas.eat = "eucalyptus"
+print koalas.eat
+
+</pre>
+</section>
+</section>
+
+<section id="sql">
+<section>
+<h2>Python Database Access</h2>
+</section>
+
+<section id="trad">
+<h3>DB-API SQL Querying</h3>
+<pre>
+
+import sqlite3 # or psycopg2, or mysql, ...
+
+conn = sqlite3.connect('staff.db')
+c = conn.cursor()
+
+for entry in c.execute("SELECT name, salary FROM managers WHERE name = 'John'"):
+    print entry[0], entry[1]
+
+</pre>
+</section>
+
+
+<section id="sqlalchemy">
+<h3>SQL Alchemy: Querying</h3>
+<pre>
+
+from sqlalchemy import orm, create_engine, MetaData
+
+db = create_engine('sqlite:///staff.db')
+metadata = MetaData(db)
+session = orm.sessionmaker(bind=db)()
+
+h_val = metadata.tables["managers"].columns
+
+for entry in session.query(h_val.name,
+                           h_val.salary).\
+                           filter(h_val.name == 'John'):
+    print entry.name, entry.salary
+
+</pre>
+
+
+</section>
+
+<section>
+<h3>DB-API: DB Creation</h3>
+<pre>
+
+import sqlite3 as dbapi
+# or psycopg2, or sqlite3...
+
+conn = dbapi.connect('staff.db')
+c = conn.cursor()
+
+c.execute("""CREATE TABLE managers
+             (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR, salary INTEGER)""")
+
+c.execute("INSERT INTO managers(name,salary) VALUES("John",30000)")
+
+c.commit()
+
+</pre>
+</section>
+
+<section>
+<h3>SQL Alchemy: DB Creation</h3>
+<pre>
+
+from sqlalchemy import orm, create_engine, MetaData, Sequence, Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
+
+db = create_engine('sqlite:///staff.db')
+session = orm.sessionmaker(bind=db)()
+
+Base = declarative_base()
+
+class Manager(Base):
+    __tablename__ = 'managers'
+
+    id = Column(Integer, Sequence('id'), primary_key=True)
+    name = Column(String)
+    salary = Column(Integer)
+
+# Create tables for all classes inheriting from Base
+Base.metadata.create_all(db)
+
+john = Manager(name="John", salary=30000)
+session.add(john)
+session.commit()
+
+</pre>
+</section>
+
+</section>
+
+<section id="pythonic">
+<section>
+<h2>Writing 'Good' Python</h2>
+</section>
+
+    <section id="zen">
+      <h3>Zen of Python</h3>
+      <pre>&gt; import this</pre>
+      <pre class="fragment">
+    Beautiful is better than ugly.
+    Explicit is better than implicit.
+    Simple is better than complex.
+    Complex is better than complicated.
+    Readability counts.
+    ...</pre>
+    </section>
+
+<section>
+<h3>Documentation</h3>
+<pre>
+"""A module which greets you."""
+
+def hello(person):
+    """Takes a string, returns a string."""
+    return "Hello " + person
+</pre>
+<pre>
+
+>>> help(greetings)
+Help on module greetings:
+
+NAME
+    greetings - A module which greets you.
+
+FILE
+    /tmp/greetings.py
+
+FUNCTIONS
+    hello(person)
+        Takes a string, returns a string.
+
+</pre>
+</section>
+
+<section>
+<h3>PEP8</h3>
 <a href="http://legacy.python.org/dev/peps/pep-0008/">PEP8 Style Guidelines</a>
 
 <pre>
@@ -509,7 +588,7 @@ for person in list:
 </section>
 
 <section>
-<h2>Pylint Code Analysis</h2>
+<h3>Pylint Code Analysis</h3>
 <a href="http://www.pylint.org">www.pylint.org</a>
 <pre>
 import greetings
@@ -530,6 +609,67 @@ Your code has been rated at 4.00/10 (previous run: -2.00/10, +6.00)
 
 
 </section>
+</section>
+
+<section id="project">
+
+<section>
+<h2>Sample Project</h2>
+</section>
+
+<section>
+<h3>Brief</h3>
+<p>A property developer wants to build houses at one of 3 regions:</p>
+<ul>
+<li>England</li>
+<li>Ireland</li>
+<li>Scotland</li>
+</ul>
+
+<p>They will build an estate consisting of houses of one of 3 sizes:</p>
+<ul>
+<li>small</li>
+<li>medium</li>
+<li>large</li>
+</ul>
+
+<p>Build cost varies with house size and region.</p>
+<p>Allowed houses per acre varies between regions.</p>
+<p>House prices also vary between regions.</p>
+
+<p>Which locations are the best and worst to build in to maximise profit?</p>
+
+</section>
+
+<section>
+<h3>Tasks</h3>
+<p>You are working as part of a team on a Python package called <em>housecost.</em></p>
+<p>Another developer has already written a Python module called <em>fakedb</em>  in this package. This module provides a <em>query</em> method, which returns data from one of 3 db tables:</p>
+<ul>
+<li>build_cost - the cost to build a house</li>
+<li>value - the price a house sells for</li>
+<li>density - the number of houses per acre</li>
+</ul>
+<p>This data is returned as a nested dictionary, containing numbers for each size and region.</p>
+<p>Your task is to write a new module for the <em>housecost</em> package, called <em>calculate</em> which contains a method called <em>profit</em>.  This method should take size and region as arguments, and return the profit for that region.</p>
+</section>
+
+<section>
+<h3>Work-list</h3>
+<ul>
+<li>Create <em>calculate</em> module alongside fakedb in the package.</li>
+<li>import <em>fakedb</em> and instantiateit's <em>DB</em> class to get access to its <em>query</em> method.</li>
+<li>Use introspection to find out what arguments <em>query</em> requires.</li>
+<li>Use introspection to look at the data returned by <em>query</em>.</li>
+<li>Define a method called <em>profit</em> that takes 2 arguments: <em>size</em> and <em>region</em>, calls <em>query</em> and calculates the profit with the data returned.</li>
+<li>Write a script called <em>profit-table.py</em> (outside of <em>housecost</em>) to import <em>calculate</em>, and call <em>profit</em> for all combinations of <em>size</em> and <em>region</em>, then print a matrix of all sizes, regions and profits.</li>
+</ul>
+</section>
+
+<section>
+<h3><a href="https://github.com/mrichar1/dtocean-course/tree/answers">An Answer</a></h3>
+</section>
+
 </section>
 
 <section id="questions">

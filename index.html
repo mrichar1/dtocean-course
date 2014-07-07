@@ -312,6 +312,34 @@ print hello("Jack")
 </pre>
 </section>
 
+<section>
+<h2>String Formatting</h2>
+<pre>
+print "Hello " + "Bob" + "how are you?"
+
+print "{} {}, {}?".format("Hello", "Bob", "how are you")
+<strong>Hello Bob, how are you?</strong>
+
+print "{0} {1}, {2} {1}?".format("Hello", "Bob", "how are you")
+<strong>Hello Bob, how are you Bob?</strong>
+
+print "|{:.6f} * {:.2f}|".format(3.14, 3.141592654)
+<strong>3.140000 * 3.14</strong>
+
+print "=={0:<6}:{1:^10}:{2:>6}==".format("Left", "Centre", "Right")
+<strong>==Left  :  Centre  : Right==</strong>
+
+
+print "{:.1%}".format(0.995)
+<strong>99.5%</strong>
+
+print "{:,}".format(987654321)
+<strong>987,654,321</strong>
+
+</pre>
+</section>
+
+
 <section id="errorhandling">
 <h3>Errors and Exceptions</h3>
 <pre>

@@ -127,11 +127,13 @@ greetings.hello("John")
       <li>greetings/</li>
       <ul style="list-style-type: none;">
         <li>__init__.py</li>
+        <li>Spanish.py</li>
       </ul>
       <ul style="list-style-type: none;">
         <li>English/</li>
         <ul style="list-style-type: none;">
           <li>__init__.py</li>
+          <li>Australian.py</li>
         </ul>
         <li>French/</li>
         <ul style="list-style-type: none;">
@@ -143,17 +145,17 @@ greetings.hello("John")
 </section>
 
   <section id="imports">
-    <h3>Imports</h3>
+    <h3>Imports from Packages</h3>
     <pre>
 
-import greetings
-greetings.English.hello("John")
-...
-
-from greetings import English, French
+from greetings import English, French, Spanish
 English.hello("John")
 French.bonjour("John")
-...
+Spanish.hola("John") # from Spanish.py
+
+
+from greetings.English import Australian
+Australian.gday("mate")
 
 </pre>
 

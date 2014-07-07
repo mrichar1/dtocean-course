@@ -67,7 +67,7 @@ Type "help", "copyright", "credits" or "license" for more information.
     <h3>greetings.py</h3>
     <pre>
 
-print "Hello!"
+print("Hello!")
 
 # This line is a comment and will be ignored
 
@@ -81,7 +81,7 @@ print "Hello!"
 # Create a method, that takes one argument
 # (Notice the colon and indentation)
 def hello(person):
-    print "Hello " + person
+    print("Hello " + person)
 
 # Now 'call' this method with an argument
 hello("John")
@@ -96,7 +96,7 @@ hello("John")
 
 # Create a method, that takes one argument
 def hello(person):
-    print "Hello " + person
+    print("Hello " + person)
 
 # Call the hello method if we're run as a command
 if __name__ == "__main__":
@@ -198,22 +198,22 @@ Australian.gday("mate")
 <h3>Lists</h3>
 <pre>
 animals = ["lion", "tiger", "wolf"]
-print len(animals)
+len(animals)
 <strong>3</strong>
 
 for animal in animals:
-    print animal
+    print(animal)
 <strong>lion
 tiger
 wolf</strong>
 
-print animals[0]
+animals[0]
 <strong>lion</strong>
 
->>> print animals[-1]
+>>> animals[-1]
 <strong>wolf</strong>
 
->>> print animals[1][1:4]
+>>> animals[1][1:4]
 <strong>ige</strong>
 
 >>> animals.append("elephant")
@@ -229,16 +229,16 @@ print animals[0]
 animals = ("lion", "tiger", "wolf")
 single_item = ("cat",)
 
-print len(animals)
+len(animals)
 <strong>3</strong>
 
 for animal in animals:
-    print animal
+    print(animal)
 <strong>lion
 tiger
 wolf</strong>
 
-print animals[0]
+animals[0]
 <strong>lion</strong>
 
 animals.append("elephant")
@@ -255,12 +255,12 @@ animals.append("elephant")
 ages = {"Alice":25, "Bob": 54, "Charles": 34}
 
 for person, age in ages.items():
-    print person, age
+    print(person, age)
 <strong>Charles 34
 Alice 25
 Bob 54</strong>
 
-print ages['Bob']
+ages['Bob']
 <strong>54</strong>
 
 ages["David"] = 67
@@ -278,16 +278,16 @@ animals = [["lion", "tiger"],
            ["wolf"],
            fish]
 
-print animals[1][0]
+animals[1][0]
 <strong>wolf</strong>
 
-print animals[2][2][3:]
+animals[2][2][3:]
 <strong>kerel</strong>
 
 ages = {"female":{"Alice":25},
             "male":{"Bob":54, "Charles":34}}
 
-print ages["male"]["Bob"]
+ages["male"]["Bob"]
 <strong>54</strong>
 
 </pre>
@@ -307,9 +307,9 @@ def hello(person):
     return "Hello " + person
 
 answer = hello("John")
-print answer
+print(answer)
 
-print hello("Jack")
+print(hello("Jack"))
 
 </pre>
 </section>
@@ -317,25 +317,25 @@ print hello("Jack")
 <section>
 <h2>String Formatting</h2>
 <pre>
-print "Hello " + "Bob" + "how are you?"
+print("Hello " + "Bob" + "how are you?")
 
-print "{} {}, {}?".format("Hello", "Bob", "how are you")
+print("{} {}, {}?".format("Hello", "Bob", "how are you"))
 <strong>Hello Bob, how are you?</strong>
 
-print "{0} {1}, {2} {1}?".format("Hello", "Bob", "how are you")
+"{0} {1}, {2} {1}?".format("Hello", "Bob", "how are you")
 <strong>Hello Bob, how are you Bob?</strong>
 
-print "|{:.6f} * {:.2f}|".format(3.14, 3.141592654)
+"|{:.6f} * {:.2f}|".format(3.14, 3.141592654)
 <strong>3.140000 * 3.14</strong>
 
-print "=={0:<6}:{1:^10}:{2:>6}==".format("Left", "Centre", "Right")
+"=={0:<6}:{1:^10}:{2:>6}==".format("Left", "Centre", "Right")
 <strong>==Left  :  Centre  : Right==</strong>
 
 
-print "{:.1%}".format(0.995)
+"{:.1%}".format(0.995)
 <strong>99.5%</strong>
 
-print "{:,}".format(987654321)
+"{:,}".format(987654321)
 <strong>987,654,321</strong>
 
 </pre>
@@ -354,7 +354,7 @@ ZeroDivisionError: integer division or modulo by zero</strong>
 try:
     a = 1/0
 except ZeroDivisionError:
-    print "Can't divide by zero"
+    print("Can't divide by zero")
     return False
 
 <strong>Can't divide by zero</strong>
@@ -372,14 +372,14 @@ def double(num):
 def half(num):
     return num * 2
 
-print double(half(100))
+print(double(half(100)))
 
 numbers = [10, 50]
 methods = [double, half]
 
 for number in numbers:
     for method in methods:
-        print method(number)
+        print(method(number))
 
 </pre>
 </section>
@@ -389,7 +389,7 @@ for number in numbers:
 <pre>
 
 def add(first, second=2, third=3):
-    print first + second + third
+    print(first + second + third)
 
 add(1)
 <strong>6 (1+2+3)</strong>
@@ -423,7 +423,7 @@ dir("cat")
 hasattr("cat", "islower")
 <strong>True</strong>
 
-print "cat".islower.__doc__
+"cat".islower.__doc__
 <strong>S.islower() -> bool
 
 Return True if all cased characters in S are lowercase and there is
@@ -448,12 +448,12 @@ class Animal(object):
 zebras = Animal("Africa")
 koalas = Animal("Australia")
 
-print zebras.come_from()
-print koalas.come_from()
+print(zebras.come_from())
+print(koalas.come_from())
 
-print koalas.eat
+print(koalas.eat)
 koalas.eat = "eucalyptus"
-print koalas.eat
+print(koalas.eat)
 
 </pre>
 </section>
@@ -474,7 +474,7 @@ conn = sqlite3.connect('staff.db')
 c = conn.cursor()
 
 for entry in c.execute("SELECT name, salary FROM managers WHERE name = 'John'"):
-    print entry[0], entry[1]
+    print(entry[0], entry[1])
 
 </pre>
 </section>
@@ -495,7 +495,7 @@ h_val = metadata.tables["managers"].columns
 for entry in session.query(h_val.name,
                            h_val.salary).\
                            filter(h_val.name == 'John'):
-    print entry.name, entry.salary
+    print(entry.name, entry.salary)
 
 </pre>
 
@@ -605,7 +605,7 @@ FUNCTIONS
 import greetings
 list=["John","Jack"]
 for person in list:
-   print "Hello " + person
+   print("Hello " + person)
 
 </pre>
 <pre>
@@ -624,7 +624,7 @@ for person in list:
 import greetings
 list = ["John", "Jack"]
 for person in list:
-    print "Hello " + person
+    print("Hello " + person)
 </pre>
 <pre>
 > pylint badcode.py

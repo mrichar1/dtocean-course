@@ -90,31 +90,47 @@ hello("John")
 
 </section>
 
-  <section id="main">
-    <h3>As a command</h3>
-    <pre>
+
+<section id="returns">
+<h3>Returns</h3>
+<pre>
+
+def hello(person):
+    return "Hello " + person
+
+answer = hello("John")
+print(answer)
+
+print(hello("Jack"))
+
+</pre>
+</section>
+
+<section id="main">
+<h3>As a command</h3>
+<pre>
 
 # Create a method, that takes one argument
 def hello(person):
-    print("Hello " + person)
+    return ("Hello " + person)
 
 # Call the hello method if we're run as a command
 if __name__ == "__main__":
-    hello("John")
+    print(hello("John"))
 
 </pre>
 </section>
 
 
-  <section id="main">
-    <h3>As a module</h3>
-    <pre>
+<section id="main">
+<h3>As a module</h3>
+<pre>
 
 # Load the greetings module
 import greetings
 
 # Call the hello method from the greetings module
-greetings.hello("John")
+print(greetings.hello("John"))
 
 
 </pre>
@@ -328,21 +344,6 @@ if 54 in people.values():
 <section id="morepython">
 <section>
 <h2>Further Python</h2>
-</section>
-
-<section id="returns">
-<h3>Returns</h3>
-<pre>
-
-def hello(person):
-    return "Hello " + person
-
-answer = hello("John")
-print(answer)
-
-print(hello("Jack"))
-
-</pre>
 </section>
 
 <section>
